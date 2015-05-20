@@ -1,20 +1,14 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports.createNodeIterator = createNodeIterator;
-exports.install = install;
-
-function createNodeIterator(root, whatToShow, filter) {
+export function createNodeIterator(root, whatToShow, filter) {
   iter = global.document.createNodeIterator(root, whatToShow, filter);
-  return typeof iter.referenceNode === 'undefined' ? shim(iter, root) : iter;
+  return typeof(iter.referenceNode) === 'undefined' ? shim(iter, root) : iter;
 }
 
-function install() {
+
+export function install() {
   if ('referenceNode' in NodeIterator.prototype) return;
   global.document.createNodeIterator = createNodeIterator;
 }
+
 
 function shim(iter, root) {
   var _referenceNode = root;
@@ -22,37 +16,37 @@ function shim(iter, root) {
 
   return Object.create(NodeIterator.prototype, {
     root: {
-      get: function get() {
+      get: function () {
         return iter.root;
       }
     },
 
     whatToShow: {
-      get: function get() {
+      get: function () {
         return iter.whatToShow;
       }
     },
 
     filter: {
-      get: function get() {
+      get: function () {
         return iter.filter;
       }
     },
 
     referenceNode: {
-      get: function get() {
+      get: function () {
         return _referenceNode;
       }
     },
 
     pointerBeforeReferenceNode: {
-      get: function get() {
+      get: function () {
         return _pointerBeforeReferenceNode;
       }
     },
 
     nextNode: {
-      value: function value() {
+      value: function () {
         _pointerBeforeReferenceNode = false;
         _referenceNode = iter.nextNode();
         return _referenceNode;
@@ -60,7 +54,7 @@ function shim(iter, root) {
     },
 
     previousNode: {
-      value: function value() {
+      value: function () {
         _pointerBeforeReferenceNode = true;
         _referenceNode = iter.previousNode();
         return _referenceNode;
@@ -68,4 +62,3 @@ function shim(iter, root) {
     }
   });
 }
-
