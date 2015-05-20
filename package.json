@@ -21,14 +21,14 @@
     "url": "https://github.com/tilgovi/node-iterator-shim/issues"
   },
   "homepage": "https://github.com/tilgovi/node-iterator-shim",
-  "dependencies": {
-    "babelify": "^6.0.2"
-  },
   "browserify": {
     "transform": [
       "babelify"
     ]
   },
   "main": "index.js",
-  "devDependencies": {}
+  "devDependencies": {
+    "babel": "^5.4.3",
+    "babelify": "^6.1.1"
+  }
 }
