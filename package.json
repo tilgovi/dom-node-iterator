@@ -1,25 +1,26 @@
 {
-  "name": "dom-seek",
+  "name": "node-iterator-shim",
   "version": "1.0.0",
-  "description": "Text traversal for HTML documents.",
+  "description": "Shim for NodeIterator reference node properties.",
   "scripts": {
     "test": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tilgovi/dom-seek.git"
+    "url": "git+https://github.com/tilgovi/node-iterator-shim.git"
   },
   "keywords": [
     "dom",
-    "text",
-    "seek"
+    "ie",
+    "NodeIterator",
+    "shim"
   ],
   "author": "Randall Leeds <randall@bleeds.info>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tilgovi/dom-seek/issues"
+    "url": "https://github.com/tilgovi/node-iterator-shim/issues"
   },
-  "homepage": "https://github.com/tilgovi/dom-seek",
+  "homepage": "https://github.com/tilgovi/node-iterator-shim",
   "dependencies": {
     "babelify": "^6.0.2"
   },
@@ -27,5 +28,7 @@
     "transform": [
       "babelify"
     ]
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {}
 }
