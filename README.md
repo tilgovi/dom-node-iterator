@@ -13,13 +13,10 @@ With a CommonJS bundler to `require('node-iterator-shim')`:
 
     npm install dom-seek
 
-With a script tag, include `node-iterator-shim.js` or
-`node-iterator-shim.min.js`:
+With a script tag, include one of the scripts from the `dist` directory.
 
-    <script src="https://raw.githubusercontent.com/tilgovi/node-iterator-shim/master/node-iterator-shim.js"></script>
-
-With RequireJS or other AMD loaders: include `node-iterator-shim.js`. It should
-properly detect the AMD environment and register itself as a module.
+RequireJS and other AMD loaders should be able to wrap the CommonJS module
+in index.js.
 
 Usage
 =====
