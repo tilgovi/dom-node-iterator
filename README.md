@@ -32,4 +32,4 @@ support the full interface.
 ## `createNodeIterator(root, whatToShow, [filter])`
 
 Creates a new instance of `NodeIterator`.
-See [the documentation](https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator]).
+See [the documentation](https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator).
