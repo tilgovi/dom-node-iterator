@@ -47,16 +47,16 @@ function shim(iter, root) {
 
     nextNode: {
       value: function () {
-        _pointerBeforeReferenceNode = false;
         _referenceNode = iter.nextNode();
+        _pointerBeforeReferenceNode = false;
         return _referenceNode;
       }
     },
 
     previousNode: {
       value: function () {
-        _pointerBeforeReferenceNode = true;
         _referenceNode = iter.previousNode();
+        _pointerBeforeReferenceNode = true;
         return _referenceNode;
       }
     }
