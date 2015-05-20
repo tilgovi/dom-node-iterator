@@ -29,6 +29,9 @@ Usage
 Installs the shim, so that objects returned by `document.createNodeIterator`
 support the full interface.
 
+If the browser already supports the full interface then this function does
+nothing. It should always be safe to call it.
+
 ## `createNodeIterator(root, whatToShow, [filter])`
 
 Creates a new instance of `NodeIterator`.
