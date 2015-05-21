@@ -1,13 +1,12 @@
-const _createNodeIterator = global.document.createNodeIterator;
+var _create = global.document.createNodeIterator;
 
 export function createNodeIterator(root, whatToShow, filter = null) {
-  iter = _createNodeIterator(root, whatToShow, filter, false);
+  var iter = _create.call(global.document, root, whatToShow, filter, false);
   return typeof(iter.referenceNode) === 'undefined' ? shim(iter, root) : iter;
 }
 
 
 export function install() {
-  if ('referenceNode' in NodeIterator.prototype) return;
   global.document.createNodeIterator = createNodeIterator;
 }
 
