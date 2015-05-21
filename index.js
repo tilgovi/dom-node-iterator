@@ -5,17 +5,16 @@ Object.defineProperty(exports, '__esModule', {
 });
 exports.createNodeIterator = createNodeIterator;
 exports.install = install;
-var _createNodeIterator = global.document.createNodeIterator;
+var _create = global.document.createNodeIterator;
 
 function createNodeIterator(root, whatToShow) {
   var filter = arguments[2] === undefined ? null : arguments[2];
 
-  iter = _createNodeIterator(root, whatToShow, filter, false);
+  var iter = _create.call(global.document, root, whatToShow, filter, false);
   return typeof iter.referenceNode === 'undefined' ? shim(iter, root) : iter;
 }
 
 function install() {
-  if ('referenceNode' in NodeIterator.prototype) return;
   global.document.createNodeIterator = createNodeIterator;
 }
 
@@ -56,7 +55,10 @@ function shim(iter, root) {
 
     nextNode: {
       value: function value() {
-        _referenceNode = iter.nextNode();
+        var result = iter.nextNode();
+        if (result !== null) {
+          _referenceNode = iter.nextNode();
+        }
         _pointerBeforeReferenceNode = false;
         return _referenceNode;
       }
@@ -64,7 +66,10 @@ function shim(iter, root) {
 
     previousNode: {
       value: function value() {
-        _referenceNode = iter.previousNode();
+        var result = iter.previousNode();
+        if (result !== null) {
+          _referenceNode = iter.previousNode();
+        }
         _pointerBeforeReferenceNode = true;
         return _referenceNode;
       }
