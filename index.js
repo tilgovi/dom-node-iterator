@@ -1,22 +1,15 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports.createNodeIterator = createNodeIterator;
-exports.install = install;
 var _create = global.document.createNodeIterator;
 
-function createNodeIterator(root, whatToShow) {
-  var filter = arguments[2] === undefined ? null : arguments[2];
-
+export function createNodeIterator(root, whatToShow, filter = null) {
   var iter = _create.call(global.document, root, whatToShow, filter, false);
-  return typeof iter.referenceNode === 'undefined' ? shim(iter, root) : iter;
+  return typeof(iter.referenceNode) === 'undefined' ? shim(iter, root) : iter;
 }
 
-function install() {
+
+export function install() {
   global.document.createNodeIterator = createNodeIterator;
 }
+
 
 function shim(iter, root) {
   var _referenceNode = root;
@@ -24,60 +17,59 @@ function shim(iter, root) {
 
   return Object.create(NodeIterator.prototype, {
     root: {
-      get: function get() {
+      get: function () {
         return iter.root;
       }
     },
 
     whatToShow: {
-      get: function get() {
+      get: function () {
         return iter.whatToShow;
       }
     },
 
     filter: {
-      get: function get() {
+      get: function () {
         return iter.filter;
       }
     },
 
     referenceNode: {
-      get: function get() {
+      get: function () {
         return _referenceNode;
       }
     },
 
     pointerBeforeReferenceNode: {
-      get: function get() {
+      get: function () {
         return _pointerBeforeReferenceNode;
       }
     },
 
     nextNode: {
-      value: function value() {
-        var result = iter.nextNode();
+      value: function () {
+        let result = iter.nextNode();
         _pointerBeforeReferenceNode = false;
         if (result === null) {
           return null;
         } else {
           _referenceNode = result;
-          return _referenceNode;
+           return _referenceNode;
         }
       }
     },
 
     previousNode: {
-      value: function value() {
-        var result = iter.previousNode();
+      value: function () {
+        let result = iter.previousNode();
         _pointerBeforeReferenceNode = true;
         if (result === null) {
-          return null;
+           return null;
         } else {
           _referenceNode = result;
-          return _referenceNode;
+           return _referenceNode;
         }
       }
     }
   });
 }
-
