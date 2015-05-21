@@ -1,5 +1,5 @@
-export function createNodeIterator(root, whatToShow, filter) {
-  iter = global.document.createNodeIterator(root, whatToShow, filter);
+export function createNodeIterator(root, whatToShow, filter = null) {
+  iter = global.document.createNodeIterator(root, whatToShow, filter, false);
   return typeof(iter.referenceNode) === 'undefined' ? shim(iter, root) : iter;
 }
 
