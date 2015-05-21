@@ -49,22 +49,26 @@ function shim(iter, root) {
     nextNode: {
       value: function () {
         let result = iter.nextNode();
+        _pointerBeforeReferenceNode = false;
         if (result !== null) {
           _referenceNode = iter.nextNode();
+           return _referenceNode;
+        } else {
+          return null;
         }
-        _pointerBeforeReferenceNode = false;
-        return _referenceNode;
       }
     },
 
     previousNode: {
       value: function () {
         let result = iter.previousNode();
+        _pointerBeforeReferenceNode = true;
         if (result !== null) {
           _referenceNode = iter.previousNode();
+           return _referenceNode;
+        } else {
+           return null;
         }
-        _pointerBeforeReferenceNode = true;
-        return _referenceNode;
       }
     }
   });
