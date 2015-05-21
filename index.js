@@ -5,11 +5,12 @@ Object.defineProperty(exports, '__esModule', {
 });
 exports.createNodeIterator = createNodeIterator;
 exports.install = install;
+var _createNodeIterator = global.document.createNodeIterator;
 
 function createNodeIterator(root, whatToShow) {
   var filter = arguments[2] === undefined ? null : arguments[2];
 
-  iter = global.document.createNodeIterator(root, whatToShow, filter, false);
+  iter = _createNodeIterator(root, whatToShow, filter, false);
   return typeof iter.referenceNode === 'undefined' ? shim(iter, root) : iter;
 }
 
