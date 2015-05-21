@@ -48,7 +48,10 @@ function shim(iter, root) {
 
     nextNode: {
       value: function () {
-        _referenceNode = iter.nextNode();
+        let result = iter.nextNode();
+        if (result !== null) {
+          _referenceNode = iter.nextNode();
+        }
         _pointerBeforeReferenceNode = false;
         return _referenceNode;
       }
@@ -56,7 +59,10 @@ function shim(iter, root) {
 
     previousNode: {
       value: function () {
-        _referenceNode = iter.previousNode();
+        let result = iter.previousNode();
+        if (result !== null) {
+          _referenceNode = iter.previousNode();
+        }
         _pointerBeforeReferenceNode = true;
         return _referenceNode;
       }
