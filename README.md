@@ -30,31 +30,36 @@ All of this is done without changing the built-in support where it is adequate.
 Installation
 ============
 
-There are a few different ways to include the library.
+With a CommonJS bundler, use npm and then `require('node-iterator-shim')`
 
-With a CommonJS bundler to `require('node-iterator-shim')`:
+    npm install node-iterator-shim
 
-    npm install dom-seek
+With a script tag, include one of `node-iterator-shim.js` or the minified
+`node-iterator-shim.min.js` from the `dist` directory.
 
-With a script tag, include one of the scripts from the `dist` directory.
-
-RequireJS and other AMD loaders should be able to wrap the CommonJS module
-in index.js.
+With AMD loaders, these scripts should also work.
 
 Usage
 =====
 
-## `nodeIteratorShim.install()`
+### `install()`
 
-Installs the shim, so that objects returned by `document.createNodeIterator`
-support the full interface.
+Installs the shim by replacing the default `document.createNodeIterator`
+method. This should always be safe to do, as it will not interfere with
+the functionality of browsers that have sufficient support.
 
-If the browser already supports the full interface then this function does
-nothing. It should always be safe to call it.
+In a browser, call `nodeIteratorShim.install()`. With a module system, this
+function is the default and only export:
 
-## `createNodeIterator(root, whatToShow, [filter])`
+    var nodeIteratorShim = require('node-iterator-shim')
+    nodeIteratorShim();
 
-Creates a new instance of `NodeIterator`.
+or in ES6:
+
+    import nodeIteratorShim from 'node-iterator-shim';
+    nodeIteratorShim();
+
+### `document.createNodeIterator(root, whatToShow, [filter])`
 
 See [the documentation at the Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator)
 for more information about using `NodeIterator`.
