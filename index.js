@@ -46,6 +46,10 @@ function shim(iter, root) {
       }
     },
 
+    detach: {
+      get: () => iter.detach
+    },
+
     nextNode: {
       value: function () {
         let result = iter.nextNode();
