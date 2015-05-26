@@ -17,33 +17,23 @@ function shim(iter, root) {
 
   return Object.create(NodeIterator.prototype, {
     root: {
-      get: function () {
-        return iter.root;
-      }
+      get: () => iter.root
     },
 
     whatToShow: {
-      get: function () {
-        return iter.whatToShow;
-      }
+      get: () => iter.whatToShow
     },
 
     filter: {
-      get: function () {
-        return iter.filter;
-      }
+      get: () => iter.filter
     },
 
     referenceNode: {
-      get: function () {
-        return _referenceNode;
-      }
+      get: () => _referenceNode
     },
 
     pointerBeforeReferenceNode: {
-      get: function () {
-        return _pointerBeforeReferenceNode;
-      }
+      get: () => _pointerBeforeReferenceNode
     },
 
     detach: {
@@ -51,7 +41,7 @@ function shim(iter, root) {
     },
 
     nextNode: {
-      value: function () {
+      value: () => {
         let result = iter.nextNode();
         _pointerBeforeReferenceNode = false;
         if (result === null) {
@@ -64,7 +54,7 @@ function shim(iter, root) {
     },
 
     previousNode: {
-      value: function () {
+      value: () => {
         let result = iter.previousNode();
         _pointerBeforeReferenceNode = true;
         if (result === null) {
