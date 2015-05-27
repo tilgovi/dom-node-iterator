@@ -42,7 +42,7 @@ With AMD loaders, these scripts should also work.
 Usage
 =====
 
-### `install()`
+#### `install()`
 
 Installs the shim by replacing the default `document.createNodeIterator`
 method. This should always be safe to do, as it will not interfere with
@@ -59,7 +59,7 @@ or in ES6:
     import nodeIteratorShim from 'node-iterator-shim';
     nodeIteratorShim();
 
-### `document.createNodeIterator(root, whatToShow, [filter])`
+#### `document.createNodeIterator(root, whatToShow, [filter])`
 
 See [the documentation at the Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator)
 for more information about using `NodeIterator`.
