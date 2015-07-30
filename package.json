@@ -1,6 +1,6 @@
 {
   "name": "node-iterator-shim",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shim for NodeIterator reference node properties.",
   "scripts": {
     "test": "npm test"
