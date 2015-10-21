@@ -22,13 +22,15 @@
   },
   "homepage": "https://github.com/tilgovi/node-iterator-shim",
   "main": "dist/node-iterator-shim.js",
-  "browser": "node-iterator-shim.js",
+  "browser": "index.js",
   "browserify": {
     "transform": [
       "babelify"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "define-properties": "^1.1.2"
+  },
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-babel": "^5.1.0",
