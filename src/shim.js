@@ -7,4 +7,5 @@ const polyfill = getPolyfill()
 
 export default function shim() {
   if (polyfill !== builtin) doc.createNodeIterator = polyfill
+  return polyfill
 }
