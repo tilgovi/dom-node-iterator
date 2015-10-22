@@ -1,7 +1,7 @@
 import adapter from './adapter'
 import implementation from './implementation'
 
-const document = global.document || {}
+const document = typeof(document) === 'object' ? document : {}
 const builtin = document.createNodeIterator
 
 

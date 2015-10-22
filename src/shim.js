@@ -1,9 +1,10 @@
 import getPolyfill from './polyfill'
 
+const document = typeof(document) === 'object' ? document : {}
+const builtin = document.createNodeIterator
+const polyfill = getPolyfill()
+
 
 export default function shim() {
-  let document = global.document || {}
-  let builtin = document.createNodeIterator
-  let polyfill = getPolyfill()
   if (polyfill !== builtin) document.createNodeIterator = polyfill
 }

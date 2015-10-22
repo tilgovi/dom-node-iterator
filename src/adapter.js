@@ -1,6 +1,6 @@
 export default createNodeIterator
 
-const document = global.document || {}
+const document = typeof(document) === 'object' ? document : {}
 const builtin = document.createNodeIterator
 
 
