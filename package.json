@@ -1,7 +1,7 @@
 {
-  "name": "node-iterator-shim",
+  "name": "dom-node-iterator",
   "version": "2.0.1",
-  "description": "Shim for NodeIterator reference node properties.",
+  "description": "A portable NodeIterator polyfill.",
   "main": "index.js",
   "scripts": {
     "test": "npm test",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tilgovi/node-iterator-shim.git"
+    "url": "git+https://github.com/tilgovi/dom-node-iterator.git"
   },
   "keywords": [
     "dom",
@@ -20,9 +20,9 @@
   "author": "Randall Leeds <randall@bleeds.info>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tilgovi/node-iterator-shim/issues"
+    "url": "https://github.com/tilgovi/dom-node-iterator/issues"
   },
-  "homepage": "https://github.com/tilgovi/node-iterator-shim",
+  "homepage": "https://github.com/tilgovi/dom-node-iterator",
   "dependencies": {
     "define-properties": "^1.1.2"
   },

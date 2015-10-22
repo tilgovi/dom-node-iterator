@@ -1,5 +1,5 @@
-NodeIterator Shim
-=================
+NodeIterator
+============
 
 `NodeIterator` is an interface originally specified by
 [DOM Level 2](http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Iterator-overview).
@@ -13,14 +13,10 @@ expose two additional properties not in the original specification but later
 added to the DOM living standard, `referenceNode` and
 `pointerBeforeReferenceNode`.
 
-This shim attempts to modernize `NodeIterator` for use in all major browsers.
+This module attempts to modernize `NodeIterator` for use in all major browsers.
 It does this through the following modifications:
 
-- The `filter` argument is really optional, even on IE.
-
-- The `expandEntityReferences` argument is discarded and the corresponding
-  property is not made available. It was never well supported and it is
-  deprecated.
+- The `whatToShow` and `filter` arguments are optional.
 
 - The `referenceNode` and `pointerBeforeReferenceNode` properties are shimmed
   when they aren't available.
@@ -30,19 +26,30 @@ All of this is done without changing the built-in support where it is adequate.
 Installation
 ============
 
-With a CommonJS bundler, use npm and then `require('node-iterator-shim')`
+Using npm:
 
-    npm install node-iterator-shim
-
-With a script tag, include one of `node-iterator-shim.js` or the minified
-`node-iterator-shim.min.js` from the `dist` directory.
-
-With AMD loaders, these scripts should also work.
+    npm install dom-node-iterator
 
 Usage
 =====
 
-#### `document.createNodeIterator(root, whatToShow, [filter])`
+This package implements the [es-shim API](https://github.com/es-shims/api)
+interface. It works in an ES3-supported environment and complies with the
+[spec](http://www.ecma-international.org/ecma-262/6.0/).
+
+```js
+// Install support, polluting the global namespace.
+require('dom-node-iterator/shim')();
+var iter = document.createNodeIterator(document.body);
+
+// Get the best implementation, without polluting the global namespace.
+var createNodeIterator = require('dom-node-iterator/polyfill')();
+var iter = createNodeIterator.call(document, document.body);
+
+// Get the pure JavaScript implementation.
+var createNodeIterator = require('dom-node-iterator/implementation');
+var iter = createNodeIterator.call(document, document.body);
+```
 
 See [the documentation at the Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator)
 for more information about using `NodeIterator`.
