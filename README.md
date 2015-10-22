@@ -21,7 +21,12 @@ It does this through the following modifications:
 - The `referenceNode` and `pointerBeforeReferenceNode` properties are shimmed
   when they aren't available.
 
-All of this is done without changing the built-in support where it is adequate.
+Compatibility Note
+==================
+
+In browsers that implement an older specification or do not implement the
+specification at all, behavior in the presence of concurrent DOM mutation is
+undefined.
 
 Installation
 ============
