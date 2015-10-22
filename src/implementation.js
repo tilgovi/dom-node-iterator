@@ -33,7 +33,8 @@ class NodeIterator {
       do {
         if (node === this.root) return null
         if (node.nextSibling) break
-      } while (node = node.parentNode)
+        node = node.parentNode
+      } while (node)
 
       node = node.nextSibling
     } while(!this._show(node) || !this._filter(node))
