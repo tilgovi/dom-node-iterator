@@ -6,7 +6,7 @@ const builtin = document.createNodeIterator
 
 
 function createNodeIterator(root, whatToShow = 0xFFFFFFFF, filter = null) {
-  let iter = builtin.call(this, root, whatToShow, filter, false)
+  const iter = builtin.call(this, root, whatToShow, filter, false)
   return new NodeIterator(iter, root, whatToShow, filter)
 }
 
@@ -24,7 +24,7 @@ class NodeIterator {
   }
 
   nextNode() {
-    let result = this._iter.nextNode()
+    const result = this._iter.nextNode()
     this.pointerBeforeReferenceNode = false
     if (result === null) return null
     this.referenceNode = result
@@ -32,7 +32,7 @@ class NodeIterator {
   }
 
   previousNode() {
-    let result = this._iter.previousNode()
+    const result = this._iter.previousNode()
     this.pointerBeforeReferenceNode = true
     if (result === null) return null
     this.referenceNode = result

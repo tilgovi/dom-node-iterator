@@ -7,7 +7,7 @@ const builtin = document.createNodeIterator
 
 export default function getPolyfill() {
   if (typeof(builtin) === 'function') {
-    let iter = builtin.call(document, document, 0xFFFFFFFF, null, false)
+    const iter = builtin.call(document, document, 0xFFFFFFFF, null, false)
     if (iter.referenceNode === document) return builtin
     return adapter
   }

@@ -21,7 +21,7 @@ class NodeIterator {
   }
 
   nextNode() {
-    let before = this.pointerBeforeReferenceNode
+    const before = this.pointerBeforeReferenceNode
     this.pointerBeforeReferenceNode = false
 
     let node = this.referenceNode
@@ -47,7 +47,7 @@ class NodeIterator {
   }
 
   previousNode() {
-    let before = this.pointerBeforeReferenceNode
+    const before = this.pointerBeforeReferenceNode
     this.pointerBeforeReferenceNode = true
 
     let node = this.referenceNode
