@@ -1,7 +1,7 @@
 export default createNodeIterator
 
-const document = typeof(document) === 'object' ? document : {}
-const builtin = document.createNodeIterator
+const doc = typeof(document) === 'object' ? document : {}
+const builtin = doc.createNodeIterator
 
 
 function createNodeIterator(root, whatToShow = 0xFFFFFFFF, filter = null) {

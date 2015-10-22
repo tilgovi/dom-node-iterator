@@ -1,14 +1,14 @@
 import adapter from './adapter'
 import implementation from './implementation'
 
-const document = typeof(document) === 'object' ? document : {}
-const builtin = document.createNodeIterator
+const doc = typeof(document) === 'object' ? document : {}
+const builtin = doc.createNodeIterator
 
 
 export default function getPolyfill() {
   if (typeof(builtin) === 'function') {
-    const iter = builtin.call(document, document, 0xFFFFFFFF, null, false)
-    if (iter.referenceNode === document) return builtin
+    const iter = builtin.call(doc, doc, 0xFFFFFFFF, null, false)
+    if (iter.referenceNode === doc) return builtin
     return adapter
   }
 
