@@ -2,8 +2,10 @@
   "name": "node-iterator-shim",
   "version": "2.0.1",
   "description": "Shim for NodeIterator reference node properties.",
+  "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "prepublish": "babel -d . -s inline -L all src"
   },
   "repository": {
     "type": "git",
@@ -21,21 +23,10 @@
     "url": "https://github.com/tilgovi/node-iterator-shim/issues"
   },
   "homepage": "https://github.com/tilgovi/node-iterator-shim",
-  "main": "dist/node-iterator-shim.js",
-  "browser": "index.js",
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "dependencies": {
     "define-properties": "^1.1.2"
   },
   "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.2.0"
+    "babel": "^5.8.23"
   }
 }

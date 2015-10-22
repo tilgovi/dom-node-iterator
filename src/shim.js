@@ -10,6 +10,6 @@ export default function shim() {
   define(
     document,
     {createNodeIterator: polyfill},
-    {createNodeIterator: () => builtin !== polyfill},
+    {createNodeIterator: () => builtin !== polyfill}
   )
 }
