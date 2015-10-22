@@ -23,9 +23,6 @@
     "url": "https://github.com/tilgovi/dom-node-iterator/issues"
   },
   "homepage": "https://github.com/tilgovi/dom-node-iterator",
-  "dependencies": {
-    "define-properties": "^1.1.2"
-  },
   "devDependencies": {
     "babel": "^5.8.23"
   }

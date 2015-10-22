@@ -1,4 +1,3 @@
-import define from 'define-properties'
 export default createNodeIterator
 
 const document = global.document || {}
@@ -13,14 +12,12 @@ function createNodeIterator(root, whatToShow = 0xFFFFFFFF, filter = null) {
 
 class NodeIterator {
   constructor(iter, root, whatToShow, filter) {
-    define(this, {
-      root: root,
-      whatToShow: whatToShow,
-      filter: filter,
-      referenceNode: root,
-      pointerBeforeReferenceNode: true,
-      _iter: iter,
-    })
+    this.root = root
+    this.whatToShow = whatToShow
+    this.filter = filter
+    this.referenceNode = root
+    this.pointerBeforeReferenceNode = true
+    this._iter = iter
   }
 
   nextNode() {

@@ -1,4 +1,3 @@
-import define from 'define-properties'
 export default createNodeIterator
 
 
@@ -9,15 +8,13 @@ function createNodeIterator(root, whatToShow = 0xFFFFFFFF, filter = null) {
 
 class NodeIterator {
   constructor(root, whatToShow, filter) {
-    define(this, {
-      root: root,
-      whatToShow: whatToShow,
-      filter: filter,
-      referenceNode: root,
-      pointerBeforeReferenceNode: true,
-      _filter: (node) => filter ? filter(node) === 1 : true,
-      _show: (node) => whatToShow >> node.nodeType - 1 & 1 === 1,
-    })
+    this.root = root
+    this.whatToShow = whatToShow
+    this.filter = filter
+    this.referenceNode = root
+    this.pointerBeforeReferenceNode = true
+    this._filter = (node) => filter ? filter(node) === 1 : true
+    this._show = (node) => whatToShow >> node.nodeType - 1 & 1 === 1
   }
 
   nextNode() {
