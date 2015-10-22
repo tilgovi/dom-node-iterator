@@ -1,6 +1,7 @@
+/*global document*/
 import getPolyfill from './polyfill'
 
-const doc = typeof(document) === 'object' ? document : {}
+const doc = typeof(document) === 'undefined' ? {} : document
 const builtin = doc.createNodeIterator
 const polyfill = getPolyfill()
 
