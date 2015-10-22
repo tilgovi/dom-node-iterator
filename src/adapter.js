@@ -1,9 +1,12 @@
 import define from 'define-properties'
 export default createNodeIterator
 
+const document = global.document || {}
+const builtin = document.createNodeIterator
+
 
 function createNodeIterator(root, whatToShow = 0xFFFFFFFF, filter = null) {
-  let iter = this.createNodeIterator(root, whatToShow, filter, false)
+  let iter = builtin.call(this, root, whatToShow, filter, false)
   return new NodeIterator(iter, root, whatToShow, filter)
 }
 
