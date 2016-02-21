@@ -1,4 +1,4 @@
 module.exports = require('./lib').default;
-module.exports.getPolyfill = require('./lib').getPolyfill;
-module.exports.implementation = require('./lib').implementation;
-module.exports.shim = require('./lib').shim;
+module.exports.getPolyfill = require('./polyfill');
+module.exports.implementation = require('./implementation');
+module.exports.shim = require('./shim');
