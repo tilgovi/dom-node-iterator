@@ -1,12 +1,9 @@
-/*global document*/
 export default createNodeIterator
-
-const doc = typeof(document) === 'undefined' ? {} : document
-const builtin = doc.createNodeIterator
 
 
 function createNodeIterator(root, whatToShow = 0xFFFFFFFF, filter = null) {
-  const iter = builtin.call(this, root, whatToShow, filter, false)
+  const doc = root.ownerDocument
+  const iter = doc.createNodeIterator(root, whatToShow, filter, false)
   return new NodeIterator(iter, root, whatToShow, filter)
 }
 
