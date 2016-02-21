@@ -1,3 +1,4 @@
-*.js
+/*.js
+!/karma.conf.js
 coverage
 node_modules
