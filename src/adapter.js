@@ -2,7 +2,7 @@ export default createNodeIterator
 
 
 function createNodeIterator(root, whatToShow = 0xFFFFFFFF, filter = null) {
-  const doc = root.ownerDocument
+  const doc = (root.nodeType == 9) || root.ownerDocument
   const iter = doc.createNodeIterator(root, whatToShow, filter, false)
   return new NodeIterator(iter, root, whatToShow, filter)
 }
