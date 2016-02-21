@@ -1,6 +1,6 @@
 {
   "name": "dom-node-iterator",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "description": "A portable NodeIterator polyfill.",
   "main": "index.js",
   "scripts": {
