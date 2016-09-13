@@ -1,5 +1,9 @@
 import { default as getPolyfill } from './polyfill'
-export { default as getPolyfill } from './polyfill'
-export { default as implementation } from './implementation'
-export { default as shim } from './shim'
-export default getPolyfill()
+import { default as implementation } from './implementation'
+import { default as shim } from './shim'
+
+const polyfill = getPolyfill()
+polyfill.implementation = implementation
+polyfill.shim = shim
+
+export default polyfill
