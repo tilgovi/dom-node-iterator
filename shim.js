@@ -1,1 +1,1 @@
-module.exports = require('./lib/shim').default;
+module.exports = require('./lib/shim')['default'];

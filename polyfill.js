@@ -1,1 +1,1 @@
-module.exports = require('./lib/polyfill').default;
+module.exports = require('./lib/polyfill')['default'];

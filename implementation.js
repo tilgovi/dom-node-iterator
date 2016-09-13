@@ -1,1 +1,1 @@
-module.exports = require('./lib/implementation').default;
+module.exports = require('./lib/implementation')['default'];
