@@ -18,53 +18,52 @@ class NodeIterator {
   }
 
   nextNode() {
-    const before = this.pointerBeforeReferenceNode
-    this.pointerBeforeReferenceNode = false
-
     let node = this.referenceNode
-    if (before && this._show(node) && this._filter(node)) return node
+    let before = this.pointerBeforeReferenceNode
 
-    do {
-      if (node.firstChild) {
-        node = node.firstChild
-        continue
+    while(true) {
+      if (before) {
+        before = false
+      } else {
+        if (node.firstChild) node = node.firstChild
+        else {
+          do {
+            if (node === this.root) return null
+            if (node.nextSibling) break
+            node = node.parentNode
+          } while (true)
+          node = node.nextSibling
+        }
       }
 
-      do {
-        if (node === this.root) return null
-        if (node.nextSibling) break
-        node = node.parentNode
-      } while (node)
-
-      node = node.nextSibling
-    } while(!this._show(node) || !this._filter(node))
+      if (this._show(node) && this._filter(node)) break
+    }
 
     this.referenceNode = node
-    this.pointerBeforeReferenceNode = false
+    this.pointerBeforeReferenceNode = before
     return node
   }
 
   previousNode() {
-    const before = this.pointerBeforeReferenceNode
-    this.pointerBeforeReferenceNode = true
-
+    let before = this.pointerBeforeReferenceNode
     let node = this.referenceNode
-    if (!before && this._show(node) && this._filter(node)) return node
 
-    do {
-      if (node === this.root) return null
-
-      if (node.previousSibling) {
-        node = node.previousSibling
-        while (node.lastChild) node = node.lastChild
-        continue
+    while (true) {
+      if (!before) {
+        before = true
+      } else {
+        if (node === this.root) return null
+        if (node.previousSibling) {
+          node = node.previousSibling
+          while (node.lastChild) node = node.lastChild
+        } else node = node.parentNode
       }
 
-      node = node.parentNode
-    } while(!this._show(node) || !this._filter(node))
+      if(this._show(node) && this._filter(node)) break
+    }
 
     this.referenceNode = node
-    this.pointerBeforeReferenceNode = true
+    this.pointerBeforeReferenceNode = before
     return node
   }
 

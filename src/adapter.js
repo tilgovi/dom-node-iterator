@@ -20,17 +20,17 @@ class NodeIterator {
 
   nextNode() {
     const result = this._iter.nextNode()
-    this.pointerBeforeReferenceNode = false
     if (result === null) return null
     this.referenceNode = result
+    this.pointerBeforeReferenceNode = false
     return this.referenceNode
   }
 
   previousNode() {
     const result = this._iter.previousNode()
-    this.pointerBeforeReferenceNode = true
     if (result === null) return null
     this.referenceNode = result
+    this.pointerBeforeReferenceNode = true
     return this.referenceNode
   }
 
