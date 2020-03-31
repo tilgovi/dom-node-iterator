@@ -4,8 +4,9 @@
   "description": "A portable NodeIterator polyfill.",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d lib -s",
     "test": "eslint src",
-    "prepublish": "babel -d lib src"
+    "prepublish": "yarn run build"
   },
   "repository": {
     "type": "git",
@@ -24,31 +25,20 @@
   },
   "homepage": "https://github.com/tilgovi/dom-node-iterator",
   "devDependencies": {
-    "babel-cli": "^6.14.0",
-    "babel-eslint": "^6.1.2",
-    "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
-    "babel-plugin-transform-es3-property-literals": "^6.8.0",
-    "babel-preset-es2015": "^6.14.0",
-    "eslint": "^3.5.0"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0"
   },
   "babel": {
-    "plugins": [
-      "transform-es3-member-expression-literals",
-      "transform-es3-property-literals"
-    ],
     "presets": [
-      [
-        "es2015",
-        {
-          "loose": true
-        }
-      ]
-    ],
-    "sourceMaps": "inline"
+      "@babel/preset-env"
+    ]
   },
   "eslintConfig": {
     "env": {
-      "commonjs": true
+      "browser": true
     },
     "extends": "eslint:recommended",
     "parser": "babel-eslint",
