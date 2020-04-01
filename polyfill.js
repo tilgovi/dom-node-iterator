@@ -1,1 +1,7 @@
-module.exports = require('./lib/polyfill')['default'];
+'use strict';
+
+var implementation = require('./implementation');
+
+module.exports = function getPolyfill() {
+  return implementation;
+}
